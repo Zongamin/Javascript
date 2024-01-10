@@ -1,0 +1,51 @@
+const prompt = require('prompt-sync')({sigint: true});
+
+Main();
+return 0;
+
+function Zahl()
+{
+    let Eingabe = prompt("?");
+    Eingabe = parseFloat(Eingabe);
+    return Eingabe;
+}
+
+function Incorrect()
+{
+    console.log("Ungueltige Eingabe!");
+    return 0;
+}
+
+function Main() 
+{
+    let running = true;
+    while(running)
+    {
+        console.log("Bitte die erste Zahl eingeben: "); 
+        let Operator01 = Zahl();
+        if (isNaN(Operator01)) 
+        {
+            Incorrect();
+            continue;
+        }
+    
+        console.log("Bitte die zweite Zahl eingeben: ");
+        let Operator02 = Zahl();
+        if (isNaN(Operator02)) 
+        {
+            Incorrect();
+            continue;
+        }
+    
+    let Summe = Operator01 + Operator02;
+    console.log("Die Summe ist: " + Summe);
+    console.log("Moechten Sie noch einen Berechnung durchführen?")
+    let nextTry = prompt("(J/N) ?")
+    if(nextTry.toLowerCase() !== "j" && nextTry.toLowerCase() !== "J") 
+    {
+        break;
+    }
+}
+}
+
+
